@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "prepare": "husky",
     "lint:format": "npx --no-install lint-staged && npx --no-install pretty-quick --staged",
-    "deploy": "az storage blob upload-batch -s ./dist/app/browser -d $web --account-name staccfrontne001"
+    "deploy": "az storage blob upload-batch -s ./dist/app/browser -d $web --account-name staccfrontne001 --overwrite"
   },
   "private": true,
   "dependencies": {
