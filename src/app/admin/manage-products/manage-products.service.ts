@@ -19,6 +19,7 @@ export class ManageProductsService extends ApiService {
           headers: {
             // eslint-disable-next-line @typescript-eslint/naming-convention
             'Content-Type': 'text/csv',
+            'x-ms-blob-type': 'BlockBlob',
           },
         }),
       ),
@@ -28,10 +29,11 @@ export class ManageProductsService extends ApiService {
   private getPreSignedUrl(fileName: string): Observable<string> {
     const url = this.getUrl('import', 'import');
 
-    return this.http.get<string>(url, {
+    return this.http.get(url, {
       params: {
         name: fileName,
       },
+      responseType: 'text',
     });
   }
 }
